@@ -1,11 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Add a question</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Add Question</h2>
+      <div class="col-md-4">
+        <form th:object="${question}" th:action="@{/save}" method="post">
+          <input type="hidden" th:field="*{id}" />
+
+          <label for="question">Question</label>
+          <input
+            type="text"
+            id="question"
+            th:field="*{question}"
+            class="form-control"
+          />
+          <div style="clear: both; display: block; height: 10px"></div>
+
+          <button type="submit" value="save">Add</button>
+
+          <!--<input
+            type="submit"
+            class="btn btn-primary"
+            th:value="${book.id == null ? 'Add Book' : 'Update Book'}"
+          /> -->
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
