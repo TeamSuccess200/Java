@@ -1,13 +1,29 @@
 package hh.sof005.kyselypalvelu.Domain;
 
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+@Entity
 public class Inquiry {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long inquiryId;
+
     private String name;
     private String description;
-    // private List<Question> questions;
 
-    public Long getInquiryId() {
-        return inquiryId;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "inquiry")
+    @JsonIgnoreProperties("inquiry")
+    private List<Question> questions;
+
+    public Inquiry() {
     }
 
     public Inquiry(String name, String description) {
@@ -21,7 +37,8 @@ public class Inquiry {
         this.description = description;
     }
 
-    public Inquiry() {
+    public Long getInquiryId() {
+        return inquiryId;
     }
 
     public String getName() {
@@ -44,4 +61,8 @@ public class Inquiry {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Inquiry inquiryId: " + inquiryId + ", name: " + name + ", description: " + description;
+    }
 }
