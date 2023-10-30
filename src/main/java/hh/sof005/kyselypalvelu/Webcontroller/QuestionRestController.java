@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import hh.sof005.kyselypalvelu.Domain.Question;
 import hh.sof005.kyselypalvelu.Domain.QuestionRepository;
 
-@CrossOrigin
 @Controller
 public class QuestionRestController {
 
