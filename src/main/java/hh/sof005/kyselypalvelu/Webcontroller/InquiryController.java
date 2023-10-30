@@ -45,6 +45,9 @@ public class InquiryController {
         // Inquiry inquiry1 = inquiryRepository.findById(inquiryId);
         // model.addAttribute("inquiry", inquiryRepository.findById(inquiryId));
         model.addAttribute(inquiryRepository.findById(inquiryId));
+        Optional<Inquiry> optionalInquiry = inquiryRepository.findById(inquiryId);
+        Inquiry inquiry = optionalInquiry.get();
+        model.addAttribute("inquiry", inquiry);
         return "inquiry";
     }
 }
