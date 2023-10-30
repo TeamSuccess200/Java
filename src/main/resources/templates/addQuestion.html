@@ -9,14 +9,16 @@
     <div class="container">
       <h2>Add Question</h2>
       <div class="col-md-4">
-        <form th:object="${question}" th:action="@{/save}" method="post">
-          <input type="hidden" th:field="*{id}" />
-
+        <form
+          th:object="${question}"
+          th:action="@{/savequestion}"
+          method="post"
+        >
           <label for="question">Question</label>
           <input
             type="text"
             id="question"
-            th:field="*{question}"
+            th:field="*{questiontext}"
             class="form-control"
           />
           <div style="clear: both; display: block; height: 10px"></div>

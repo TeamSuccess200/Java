@@ -12,17 +12,17 @@ import hh.sof005.kyselypalvelu.Domain.QuestionRepository;
 
 @Controller
 public class QuestionController {
-    
+
     @Autowired
     QuestionRepository questionRepository;
-    
-    @GetMapping("/addquestion") 
+
+    @GetMapping("/addquestion")
     public String addQuestion(Model model) {
         model.addAttribute("question", new Question());
         return "addQuestion";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/savequestion")
     public String saveQuestion(@ModelAttribute("question") Question question) {
         questionRepository.save(question);
         return "redirect:/inquiryList";
