@@ -32,18 +32,18 @@ public class InquiryController {
         return "addInquiry";
     }
 
-    /*Tallenna kysely */
+    /* Tallenna kysely */
     @PostMapping("/saveInquiry")
     public String saveInquiry(Inquiry inquiry) {
         inquiryRepository.save(inquiry);
         return "redirect:/inquiryList";
     }
 
-    /*Näytä kysely */
+    /* Näytä kysely */
     @GetMapping("/inquiry/{id}")
     public String showInquiry(@PathVariable("id") Long inquiryId, Model model) {
-        //Inquiry inquiry1 = inquiryRepository.findById(inquiryId);
-        //model.addAttribute("inquiry", inquiryRepository.findById(inquiryId));
+        // Inquiry inquiry1 = inquiryRepository.findById(inquiryId);
+        // model.addAttribute("inquiry", inquiryRepository.findById(inquiryId));
         model.addAttribute(inquiryRepository.findById(inquiryId));
         return "inquiry";
     }
