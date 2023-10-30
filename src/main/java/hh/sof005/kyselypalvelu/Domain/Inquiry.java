@@ -65,4 +65,13 @@ public class Inquiry {
     public String toString() {
         return "Inquiry inquiryId: " + inquiryId + ", name: " + name + ", description: " + description;
     }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
 }

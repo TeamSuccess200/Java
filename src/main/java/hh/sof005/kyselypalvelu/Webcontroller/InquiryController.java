@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import hh.sof005.kyselypalvelu.Domain.Inquiry;
 import hh.sof005.kyselypalvelu.Domain.InquiryRepository;
@@ -26,5 +27,11 @@ public class InquiryController {
     public String addInquiry(Model model) {
         model.addAttribute("inquiry", new Inquiry());
         return "addInquiry";
+    }
+
+    @PostMapping("/saveInquiry")
+    public String saveInquiry(Inquiry inquiry) {
+        inquiryRepository.save(inquiry);
+        return "redirect:/inquiryList";
     }
 }
