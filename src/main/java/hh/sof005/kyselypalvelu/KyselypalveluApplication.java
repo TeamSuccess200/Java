@@ -19,8 +19,6 @@ public class KyselypalveluApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(KyselypalveluApplication.class, args);
 
-
-		// Testikommentti
 	}
 
 	@Bean
