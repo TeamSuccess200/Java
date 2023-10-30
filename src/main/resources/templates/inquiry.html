@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add inquiry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h2>Inquiry</h2>
+
+    <tr th:text="${inquiry.name}"></tr>
+    <tr th:text="${inquiry.description}"></tr>
+
+   <!-- <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="inquiry : ${inquiries}">
+
+                <td th:text="${inquiry.name}"></td>
+                <td th:text="${inquiry.description}"></td> -->
+
+</body>
