@@ -21,13 +21,12 @@
                 <td th:text="${inquiry.description}"></td>
             </tr>
         </tbody>
-
-        <ul th:each="question : ${inquiry.questions}">
-            <li th:text="${question.questiontext}"></li>
-        </ul>
     </table>
+    <ul th:each="question : ${inquiry.questions}">
+        <li th:text="${question.questiontext}"></li>
+    </ul>
 
-    <a href="/addquestion">Add new question</a>
+    <a th:href="@{'/addquestion/' + ${inquiry.inquiryId}}">Add new question</a>
 
     <br />
 
