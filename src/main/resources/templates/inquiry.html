@@ -21,7 +21,15 @@
                 <td th:text="${inquiry.description}"></td>
             </tr>
         </tbody>
+
+        <ul th:each="question : ${inquiry.questions}">
+            <li th:text="${question.questiontext}"></li>
+        </ul>
     </table>
+
+    <a href="/addquestion">Add new question</a>
+
+    <br />
 
     <a href="/inquiryList">Back</a>
 

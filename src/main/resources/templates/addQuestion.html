@@ -12,8 +12,12 @@
         <form
           th:object="${question}"
           th:action="@{/savequestion}"
+          action="#"
           method="post"
         >
+
+        <input type="hidden" th:field="*{inquiry.inquiryId}" />
+
           <label for="question">Question</label>
           <input
             type="text"
@@ -23,7 +27,7 @@
           />
           <div style="clear: both; display: block; height: 10px"></div>
 
-          <button type="submit" value="save">Add</button>
+          <button type="submit" value="savequestion">Add</button>
 
           <!--<input
             type="submit"
