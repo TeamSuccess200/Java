@@ -26,7 +26,7 @@ public class InquiryRestController {
     }
 
     @RequestMapping(value = "/inquiries/{id}", method = RequestMethod.GET)
-    public Optional<Inquiry> findQuestionRest(@PathVariable("id") Long inquiryid) {
+    public @ResponseBody Optional<Inquiry> findQuestionRest(@PathVariable("id") Long inquiryid) {
         return inquiryRepository.findById(inquiryid);
     }
 

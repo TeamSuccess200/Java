@@ -27,7 +27,7 @@ public class QuestionRestController {
     }
 
     @RequestMapping(value = "/questions/{id}", method = RequestMethod.GET)
-    public Optional<Question> findQuestionRest(@PathVariable("id") Long questionid) {
+    public @ResponseBody Optional<Question> findQuestionRest(@PathVariable("id") Long questionid) {
         return questionRepository.findById(questionid);
     }
 
