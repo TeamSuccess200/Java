@@ -20,35 +20,39 @@ public class Question {
     @JsonIgnoreProperties("questions")
     @JoinColumn(name = "inquiryId")
     private Inquiry inquiry;
-    
+
     public Question() {
     }
 
-public Question(Long questionid, String questiontext, Inquiry inquiry) {
+    public Question(String questiontext, Inquiry inquiry) {
+        this.questiontext = questiontext;
+        this.inquiry = inquiry;
+    }
+
+    public Question(Long questionid, String questiontext, Inquiry inquiry) {
         this.questionid = questionid;
         this.questiontext = questiontext;
         this.inquiry = inquiry;
     }
 
-     public Inquiry getInquiry() {
+    public Inquiry getInquiry() {
         return inquiry;
     }
 
-    public void setInquiry(Inquiry inquiry) {
-        this.inquiry = inquiry;
-    }
-    
-   
     public Long getQuestionid() {
         return questionid;
+    }
+
+    public String getQuestiontext() {
+        return questiontext;
     }
 
     public void setQuestionid(Long questionid) {
         this.questionid = questionid;
     }
 
-    public String getQuestiontext() {
-        return questiontext;
+    public void setInquiry(Inquiry inquiry) {
+        this.inquiry = inquiry;
     }
 
     public void setQuestiontext(String questiontext) {
@@ -59,5 +63,4 @@ public Question(Long questionid, String questiontext, Inquiry inquiry) {
     public String toString() {
         return "Question [questionid=" + questionid + ", questiontext=" + questiontext + ", inquiry=" + inquiry + "]";
     }
-
 }

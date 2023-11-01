@@ -49,6 +49,10 @@ public class Inquiry {
         return description;
     }
 
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
     public void setInquiryId(Long inquiryId) {
         this.inquiryId = inquiryId;
     }
@@ -61,17 +65,12 @@ public class Inquiry {
         this.description = description;
     }
 
-    @Override
-    public String toString() {
-        return "Inquiry inquiryId: " + inquiryId + ", name: " + name + ", description: " + description;
-    }
-
-    public List<Question> getQuestions() {
-        return questions;
-    }
-
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
 
+    @Override
+    public String toString() {
+        return "Inquiry inquiryId: " + inquiryId + ", name: " + name + ", description: " + description;
+    }
 }
