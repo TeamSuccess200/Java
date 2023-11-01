@@ -26,7 +26,7 @@ public class QuestionRestController {
         return (List<Question>) questionRepository.findAll();
     }
 
-    @RequestMapping(value = "/questions/id", method = RequestMethod.GET)
+    @RequestMapping(value = "/questions/{id}", method = RequestMethod.GET)
     public Optional<Question> findQuestionRest(@PathVariable("id") Long questionid) {
         return questionRepository.findById(questionid);
     }

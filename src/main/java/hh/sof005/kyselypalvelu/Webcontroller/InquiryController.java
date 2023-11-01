@@ -42,8 +42,6 @@ public class InquiryController {
     /* Näytä kysely */
     @GetMapping("/inquiry/{id}")
     public String showInquiry(@PathVariable("id") Long inquiryId, Model model) {
-        // Inquiry inquiry1 = inquiryRepository.findById(inquiryId);
-        // model.addAttribute("inquiry", inquiryRepository.findById(inquiryId));
         model.addAttribute(inquiryRepository.findById(inquiryId));
         Optional<Inquiry> optionalInquiry = inquiryRepository.findById(inquiryId);
         Inquiry inquiry = optionalInquiry.get();
