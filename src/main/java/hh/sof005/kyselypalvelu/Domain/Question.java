@@ -1,13 +1,17 @@
 package hh.sof005.kyselypalvelu.Domain;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Question {
@@ -20,6 +24,10 @@ public class Question {
     @JsonIgnoreProperties("questions")
     @JoinColumn(name = "inquiryId")
     private Inquiry inquiry;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "question")
+    @JsonIgnoreProperties("question")
+    private List<Answer> answers;
 
     public Question() {
     }
@@ -47,6 +55,10 @@ public class Question {
         return questiontext;
     }
 
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
     public void setQuestionid(Long questionid) {
         this.questionid = questionid;
     }
@@ -59,8 +71,13 @@ public class Question {
         this.questiontext = questiontext;
     }
 
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
     @Override
     public String toString() {
-        return "Question [questionid=" + questionid + ", questiontext=" + questiontext + ", inquiry=" + inquiry + "]";
+        return "Question questionid: " + questionid + ", questiontext: " + questiontext + ", inquiry: " + inquiry;
     }
+
 }
