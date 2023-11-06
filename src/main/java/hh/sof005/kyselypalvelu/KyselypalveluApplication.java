@@ -38,7 +38,7 @@ public class KyselypalveluApplication {
 			Question question3 = new Question("Mitä kehittäisit kurssitoteutuksessa?", testInquiry1);
 			Question question4 = new Question("Mistä tykkäsit erityisesti opetuksessa?", testInquiry1);
 			Question question5 = new Question("Miten arvioisit oman aktiivisuutesi kurssilla?", testInquiry1);
-			Question question6 = new Question("Anna vapaamuotoista palautetta kurssista", testInquiry1);
+			Question question6 = new Question("Anna vapaamuotoista palautetta kurssista: ", testInquiry1);
 
 			qrepository.save(question1);
 			qrepository.save(question2);
