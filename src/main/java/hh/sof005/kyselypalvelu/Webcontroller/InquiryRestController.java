@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +21,13 @@ public class InquiryRestController {
     @Autowired
     InquiryRepository inquiryRepository;
 
+    @CrossOrigin
     @RequestMapping(value = "/inquiries", method = RequestMethod.GET)
     public @ResponseBody List<Inquiry> inquiryListRest() {
         return (List<Inquiry>) inquiryRepository.findAll();
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/inquiries/{id}", method = RequestMethod.GET)
     public @ResponseBody Optional<Inquiry> findQuestionRest(@PathVariable("id") Long inquiryid) {
         return inquiryRepository.findById(inquiryid);
