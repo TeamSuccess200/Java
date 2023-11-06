@@ -55,6 +55,10 @@ public class Question {
         return questiontext;
     }
 
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
     public void setQuestionid(Long questionid) {
         this.questionid = questionid;
     }
@@ -67,8 +71,13 @@ public class Question {
         this.questiontext = questiontext;
     }
 
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
     @Override
     public String toString() {
-        return "Question [questionid=" + questionid + ", questiontext=" + questiontext + ", inquiry=" + inquiry + "]";
+        return "Question questionid: " + questionid + ", questiontext: " + questiontext + ", inquiry: " + inquiry;
     }
+
 }
