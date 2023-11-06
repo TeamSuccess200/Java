@@ -15,19 +15,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import hh.sof005.kyselypalvelu.Domain.Inquiry;
 import hh.sof005.kyselypalvelu.Domain.InquiryRepository;
 
+@CrossOrigin
 @Controller
 public class InquiryRestController {
 
     @Autowired
     InquiryRepository inquiryRepository;
 
-    @CrossOrigin
     @RequestMapping(value = "/inquiries", method = RequestMethod.GET)
     public @ResponseBody List<Inquiry> inquiryListRest() {
         return (List<Inquiry>) inquiryRepository.findAll();
     }
 
-    @CrossOrigin
     @RequestMapping(value = "/inquiries/{id}", method = RequestMethod.GET)
     public @ResponseBody Optional<Inquiry> findQuestionRest(@PathVariable("id") Long inquiryid) {
         return inquiryRepository.findById(inquiryid);
