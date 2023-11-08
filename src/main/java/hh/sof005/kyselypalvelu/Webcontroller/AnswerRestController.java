@@ -34,6 +34,7 @@ public class AnswerRestController {
 
     @RequestMapping(value = "/answers", method = RequestMethod.POST)
     public @ResponseBody Answer saveAnswerRest(@RequestBody Answer answer) {
+        System.out.println("Received answer: " + answer);
         return answerRepository.save(answer);
     }
 
