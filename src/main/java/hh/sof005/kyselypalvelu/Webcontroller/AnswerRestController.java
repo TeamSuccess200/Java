@@ -32,10 +32,16 @@ public class AnswerRestController {
         return answerRepository.findById(answerId);
     }
 
-    @RequestMapping(value = "/answers", method = RequestMethod.POST)
+    /* @RequestMapping(value = "/answers", method = RequestMethod.POST)
     public @ResponseBody Answer saveAnswerRest(@RequestBody Answer answer) {
         System.out.println("Received answer: " + answer);
         return answerRepository.save(answer);
+    } */
+
+    @RequestMapping(value = "/answers", method = RequestMethod.POST)
+    public @ResponseBody Iterable<Answer> saveAnswerRest(@RequestBody List<Answer> answers) {
+        System.out.println("Received answer: " + answers);
+        return answerRepository.saveAll((Iterable<Answer>) answers);
     }
 
 }
