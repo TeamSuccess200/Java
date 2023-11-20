@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import hh.sof005.kyselypalvelu.Domain.Answer;
+import hh.sof005.kyselypalvelu.Domain.AnswerRepository;
 import hh.sof005.kyselypalvelu.Domain.Inquiry;
 import hh.sof005.kyselypalvelu.Domain.InquiryRepository;
 import hh.sof005.kyselypalvelu.Domain.Question;
@@ -23,7 +25,7 @@ public class KyselypalveluApplication {
 	}
 
 	@Bean
-	public CommandLineRunner inquiryDemo(InquiryRepository irepository, QuestionRepository qrepository) {
+	public CommandLineRunner inquiryDemo(InquiryRepository irepository, QuestionRepository qrepository, AnswerRepository arepository) {
 		return (args) -> {
 			log.info("Save some inquiries");
 			Inquiry testInquiry1 = new Inquiry("Kurssipalaute", "Anna palautetta kurssista");
@@ -47,12 +49,34 @@ public class KyselypalveluApplication {
 			qrepository.save(question5);
 			qrepository.save(question6);
 
-			log.info("Save somw questions to the testinquiry2");
+			log.info("Save some answers to the testinquiry");
+			Answer answer1 = new Answer("Kurssimateriaalit olivat hyvät.", question1);
+			Answer answer2 = new Answer("Opetus oli ok. Olisin halunnut käytännönläheisempää tekemistä.", question2);
+			Answer answer3 = new Answer("Vähentäisin ryhmätyöskentelyä ja lisäisin yksintyöskentelyä.", question3);
+			Answer answer4 = new Answer("Tykkäsin opettajan innostuksesta asiaan liittyen.", question4);
+			Answer answer5 = new Answer("Oma aktiivisuuteni oli ehkä 7/10-luokkaa.", question5);
+			Answer answer6 = new Answer("Pitkiin diaesityksiin on vaikea jaksaa keskittyä, niitä voisi hieman tiivistää.", question6);
+
+			arepository.save(answer1);
+			arepository.save(answer2);
+			arepository.save(answer3);
+			arepository.save(answer4);
+			arepository.save(answer5);
+			arepository.save(answer6);
+
+			log.info("Save some questions to the testinquiry2");
 			Question question10 = new Question("What is your pets name?", testInquiry2);
 			Question question11 = new Question("How old is your pet?", testInquiry2);
 
 			qrepository.save(question10);
 			qrepository.save(question11);
+
+			log.info("Save some answers to the testinquiry2");
+			Answer answer10 = new Answer("My pet's name is Alpo", question10);
+			Answer answer11 = new Answer("Alpo is two-years old", question11);
+
+			arepository.save(answer10);
+			arepository.save(answer11);
 		};
 	}
 
