@@ -20,6 +20,16 @@ public class Question {
     private Long questionid;
     private String questiontext;
 
+    private String questiontype;
+
+    public String getQuestiontype() {
+        return questiontype;
+    }
+
+    public void setQuestiontype(String questiontype) {
+        this.questiontype = questiontype;
+    }
+
     @ManyToOne
     @JsonIgnoreProperties("questions")
     @JoinColumn(name = "inquiryId")
@@ -54,6 +64,8 @@ public class Question {
     public String getQuestiontext() {
         return questiontext;
     }
+
+    
 
     public List<Answer> getAnswers() {
         return answers;

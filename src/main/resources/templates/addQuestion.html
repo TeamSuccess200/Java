@@ -18,6 +18,23 @@
 
         <input type="hidden" th:field="*{inquiry.inquiryId}" />
 
+        <label for="questiontype">Question Type</label>
+        <div>
+            <label>
+                <input type="radio" th:field="*{questiontype}" value="SingleChoice" />
+                Radiobutton
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="radio" th:field="*{questiontype}" value="MultipleChoice" />
+                Text
+            </label>
+        </div>
+
+        <br />
+        <br />
+
           <label for="question">Question</label>
           <input
             type="text"
