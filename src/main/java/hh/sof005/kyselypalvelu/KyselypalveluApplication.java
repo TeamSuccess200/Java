@@ -25,7 +25,8 @@ public class KyselypalveluApplication {
 	}
 
 	@Bean
-	public CommandLineRunner inquiryDemo(InquiryRepository irepository, QuestionRepository qrepository, AnswerRepository arepository) {
+	public CommandLineRunner inquiryDemo(InquiryRepository irepository, QuestionRepository qrepository,
+			AnswerRepository arepository) {
 		return (args) -> {
 			log.info("Save some inquiries");
 			Inquiry testInquiry1 = new Inquiry("Kurssipalaute", "Anna palautetta kurssista");
@@ -35,12 +36,12 @@ public class KyselypalveluApplication {
 			irepository.save(testInquiry2);
 
 			log.info("Save some questions to the testinquiry");
-			Question question1 = new Question("Mitä mieltä olit kurssimateriaaleista?", testInquiry1);
-			Question question2 = new Question("Mitä mieltä opetuksesta?", testInquiry1);
-			Question question3 = new Question("Mitä kehittäisit kurssitoteutuksessa?", testInquiry1);
-			Question question4 = new Question("Mistä tykkäsit erityisesti opetuksessa?", testInquiry1);
-			Question question5 = new Question("Miten arvioisit oman aktiivisuutesi kurssilla?", testInquiry1);
-			Question question6 = new Question("Anna vapaamuotoista palautetta kurssista: ", testInquiry1);
+			Question question1 = new Question("Mitä mieltä olit kurssimateriaaleista?", testInquiry1, "text");
+			Question question2 = new Question("Mitä mieltä opetuksesta?", testInquiry1, "text");
+			Question question3 = new Question("Mitä kehittäisit kurssitoteutuksessa?", testInquiry1, "text");
+			Question question4 = new Question("Mistä tykkäsit erityisesti opetuksessa?", testInquiry1, "text");
+			Question question5 = new Question("Miten arvioisit oman aktiivisuutesi kurssilla?", testInquiry1, "text");
+			Question question6 = new Question("Anna vapaamuotoista palautetta kurssista: ", testInquiry1, "text");
 
 			qrepository.save(question1);
 			qrepository.save(question2);
@@ -55,7 +56,8 @@ public class KyselypalveluApplication {
 			Answer answer3 = new Answer("Vähentäisin ryhmätyöskentelyä ja lisäisin yksintyöskentelyä.", question3);
 			Answer answer4 = new Answer("Tykkäsin opettajan innostuksesta asiaan liittyen.", question4);
 			Answer answer5 = new Answer("Oma aktiivisuuteni oli ehkä 7/10-luokkaa.", question5);
-			Answer answer6 = new Answer("Pitkiin diaesityksiin on vaikea jaksaa keskittyä, niitä voisi hieman tiivistää.", question6);
+			Answer answer6 = new Answer(
+					"Pitkiin diaesityksiin on vaikea jaksaa keskittyä, niitä voisi hieman tiivistää.", question6);
 
 			arepository.save(answer1);
 			arepository.save(answer2);
@@ -65,8 +67,8 @@ public class KyselypalveluApplication {
 			arepository.save(answer6);
 
 			log.info("Save some questions to the testinquiry2");
-			Question question10 = new Question("What is your pets name?", testInquiry2);
-			Question question11 = new Question("How old is your pet?", testInquiry2);
+			Question question10 = new Question("What is your pets name?", testInquiry2, "text");
+			Question question11 = new Question("How old is your pet?", testInquiry2, "text");
 
 			qrepository.save(question10);
 			qrepository.save(question11);

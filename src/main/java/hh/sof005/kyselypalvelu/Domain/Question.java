@@ -19,6 +19,15 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long questionid;
     private String questiontext;
+    private String questionoptions;
+
+    public String getQuestionoptions() {
+        return questionoptions;
+    }
+
+    public void setQuestionoptions(String questionoptions) {
+        this.questionoptions = questionoptions;
+    }
 
     private String questiontype;
 
@@ -42,13 +51,15 @@ public class Question {
     public Question() {
     }
 
-    public Question(String questiontext, Inquiry inquiry) {
+    public Question(String questiontext, Inquiry inquiry, String questiontype) {
         this.questiontext = questiontext;
+        this.questiontype = questiontype;
         this.inquiry = inquiry;
     }
 
-    public Question(Long questionid, String questiontext, Inquiry inquiry) {
+    public Question(Long questionid, String questiontext, Inquiry inquiry, String questiontype) {
         this.questionid = questionid;
+        this.questiontype = questiontype;
         this.questiontext = questiontext;
         this.inquiry = inquiry;
     }
@@ -64,8 +75,6 @@ public class Question {
     public String getQuestiontext() {
         return questiontext;
     }
-
-    
 
     public List<Answer> getAnswers() {
         return answers;
