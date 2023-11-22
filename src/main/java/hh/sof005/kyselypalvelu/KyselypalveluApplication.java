@@ -35,12 +35,12 @@ public class KyselypalveluApplication {
 			irepository.save(testInquiry2);
 
 			log.info("Save some questions to the testinquiry");
-			Question question1 = new Question("Mitä mieltä olit kurssimateriaaleista?", testInquiry1);
-			Question question2 = new Question("Mitä mieltä opetuksesta?", testInquiry1);
-			Question question3 = new Question("Mitä kehittäisit kurssitoteutuksessa?", testInquiry1);
-			Question question4 = new Question("Mistä tykkäsit erityisesti opetuksessa?", testInquiry1);
-			Question question5 = new Question("Miten arvioisit oman aktiivisuutesi kurssilla?", testInquiry1);
-			Question question6 = new Question("Anna vapaamuotoista palautetta kurssista: ", testInquiry1);
+			Question question1 = new Question("text", "Mitä mieltä olit kurssimateriaaleista?", testInquiry1);
+			Question question2 = new Question("text", "Mitä mieltä opetuksesta?", testInquiry1);
+			Question question3 = new Question("text", "Mitä kehittäisit kurssitoteutuksessa?", testInquiry1);
+			Question question4 = new Question("text", "Mistä tykkäsit erityisesti opetuksessa?", testInquiry1);
+			Question question5 = new Question("text", "Miten arvioisit oman aktiivisuutesi kurssilla?", testInquiry1);
+			Question question6 = new Question("text", "Anna vapaamuotoista palautetta kurssista: ", testInquiry1);
 
 			qrepository.save(question1);
 			qrepository.save(question2);
@@ -65,8 +65,8 @@ public class KyselypalveluApplication {
 			arepository.save(answer6);
 
 			log.info("Save some questions to the testinquiry2");
-			Question question10 = new Question("What is your pets name?", testInquiry2);
-			Question question11 = new Question("How old is your pet?", testInquiry2);
+			Question question10 = new Question("text", "What is your pets name?", testInquiry2);
+			Question question11 = new Question("text", "How old is your pet?", testInquiry2);
 
 			qrepository.save(question10);
 			qrepository.save(question11);

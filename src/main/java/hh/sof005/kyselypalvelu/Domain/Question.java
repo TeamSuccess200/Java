@@ -42,15 +42,17 @@ public class Question {
     public Question() {
     }
 
-    public Question(String questiontext, Inquiry inquiry) {
+    public Question(String questiontype, String questiontext, Inquiry inquiry) {
         this.questiontext = questiontext;
         this.inquiry = inquiry;
+        this.questiontype = questiontype;
     }
 
-    public Question(Long questionid, String questiontext, Inquiry inquiry) {
+    public Question(Long questionid, String questiontype, String questiontext, Inquiry inquiry) {
         this.questionid = questionid;
         this.questiontext = questiontext;
         this.inquiry = inquiry;
+        this.questiontype = questiontype;
     }
 
     public Inquiry getInquiry() {
@@ -64,8 +66,6 @@ public class Question {
     public String getQuestiontext() {
         return questiontext;
     }
-
-    
 
     public List<Answer> getAnswers() {
         return answers;
@@ -89,7 +89,7 @@ public class Question {
 
     @Override
     public String toString() {
-        return "Question questionid: " + questionid + ", questiontext: " + questiontext + ", inquiry: " + inquiry;
+        return "Question questionid: " + questionid + ", questiontext: " + questiontext + ", inquiry: " + inquiry + ", questiontype: " + questiontype;
     }
 
 }
