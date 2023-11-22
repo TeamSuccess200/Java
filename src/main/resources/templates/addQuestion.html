@@ -42,15 +42,19 @@
             th:field="*{questiontext}"
             class="form-control"
           />
+          <p>Question options (only if radiobutton. comma with space)</p>
+          <label for="questionoptions">Question options</label>
+          <input
+            type="text"
+            id="question"
+            th:field="*{questionoptions}"
+            class="form-control"
+          />
           <div style="clear: both; display: block; height: 10px"></div>
 
           <button type="submit" value="savequestion">Add</button>
 
-          <!--<input
-            type="submit"
-            class="btn btn-primary"
-            th:value="${book.id == null ? 'Add Book' : 'Update Book'}"
-          /> -->
+
         </form>
       </div>
     </div>
