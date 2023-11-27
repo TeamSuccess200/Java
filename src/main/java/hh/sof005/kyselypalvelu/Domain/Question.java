@@ -21,6 +21,16 @@ public class Question {
     private String questiontext;
     private String questionoptions;
 
+    private boolean isrequired;
+
+    public boolean isIsrequired() {
+        return isrequired;
+    }
+
+    public void setIsrequired(boolean isrequired) {
+        this.isrequired = isrequired;
+    }
+
     public String getQuestionoptions() {
         return questionoptions;
     }
@@ -100,7 +110,8 @@ public class Question {
 
     @Override
     public String toString() {
-        return "Question questionid: " + questionid + ", questiontext: " + questiontext + ", inquiry: " + inquiry + ", questiontype: " + questiontype;
+        return "Question questionid: " + questionid + ", questiontext: " + questiontext + ", inquiry: " + inquiry
+                + ", questiontype: " + questiontype;
     }
 
 }
