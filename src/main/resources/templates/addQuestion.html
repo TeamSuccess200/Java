@@ -4,7 +4,6 @@
     <title>Add a question</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   </head>
-
   <body>
     <div class="container">
       <h2>Add Question</h2>
@@ -21,13 +20,13 @@
         <label for="questiontype">Question Type</label>
         <div>
             <label>
-                <input type="radio" th:field="*{questiontype}" value="radio" />
+                <input type="radio" th:field="*{questiontype}" value="radio" onClick="toggleQuestionOptions()"/>
                 Radiobutton
             </label>
         </div>
         <div>
             <label>
-                <input type="radio" th:field="*{questiontype}" value="text" />
+                <input type="radio" th:field="*{questiontype}" value="text" onClick="toggleQuestionOptions()"/>
                 Text
             </label>
         </div>
@@ -35,6 +34,7 @@
         <br />
         <br />
 
+        <div id="questionTypeSection" style="display: none">
           <label for="question">Question</label>
           <input
             type="text"
@@ -42,14 +42,12 @@
             th:field="*{questiontext}"
             class="form-control"
           />
-          <p>Question options (only if radiobutton. comma with space)</p>
-          <label for="questionoptions">Question options</label>
-          <input
-            type="text"
-            id="question"
-            th:field="*{questionoptions}"
-            class="form-control"
-          />
+        </div>
+          <div id="questionOptionsSection" style="display: none;">
+            <p>Question options (Options separated with a comma and a space)</p>
+            <label for="questionoptions">Question options</label>
+            <input type="text" id="questionoptions" th:field="*{questionoptions}" class="form-control"/>
+          </div>
           <div style="clear: both; display: block; height: 10px"></div>
 
           <button type="submit" value="savequestion">Add</button>
@@ -58,5 +56,26 @@
         </form>
       </div>
     </div>
+
+    <script th:inline="javascript">
+      /*<![CDATA[*/
+      function toggleQuestionOptions() {
+          var questionOptionsSection = document.getElementById('questionOptionsSection');
+          var questionTypeSection = document.getElementById('questionTypeSection');
+          var questionType = document.querySelector('input[name="questiontype"]:checked').value;
+
+          if (questionType === 'radio' || 'text') {
+            questionTypeSection.style.display = 'block';
+          }
+  
+          if (questionType === 'radio') {
+              questionOptionsSection.style.display = 'block';
+          } else {
+              questionOptionsSection.style.display = 'none';
+          }
+      }
+      /*]]>*/
+  </script>
+
   </body>
 </html>
