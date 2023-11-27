@@ -23,6 +23,8 @@ public class Answer {
     @JsonIgnoreProperties("answers")
     private Question question;
 
+    /* Constructors */
+
     public Answer() {
     }
 
@@ -34,6 +36,8 @@ public class Answer {
     public Answer(String answertext) {
         this.answertext = answertext;
     }
+
+    /* Setters */
 
     public void setAnswerId(Long answerId) {
         this.answerId = answerId;
@@ -47,6 +51,8 @@ public class Answer {
         this.question = question;
     }
 
+    /* Getters */
+
     public Long getAnswerId() {
         return answerId;
     }
@@ -58,6 +64,8 @@ public class Answer {
     public Question getQuestion() {
         return question;
     }
+
+    /* toString */
 
     @Override
     public String toString() {

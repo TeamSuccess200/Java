@@ -23,6 +23,8 @@ public class Inquiry {
     @JsonIgnoreProperties("inquiry")
     private List<Question> questions;
 
+    /* Constructors */
+
     public Inquiry() {
     }
 
@@ -36,6 +38,8 @@ public class Inquiry {
         this.name = name;
         this.description = description;
     }
+
+    /* Getters */
 
     public Long getInquiryId() {
         return inquiryId;
@@ -53,6 +57,8 @@ public class Inquiry {
         return questions;
     }
 
+    /* Setters */
+
     public void setInquiryId(Long inquiryId) {
         this.inquiryId = inquiryId;
     }
@@ -68,6 +74,8 @@ public class Inquiry {
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
+
+    /* toString */
 
     @Override
     public String toString() {

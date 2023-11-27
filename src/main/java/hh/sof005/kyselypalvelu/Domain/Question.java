@@ -20,34 +20,8 @@ public class Question {
     private Long questionid;
     private String questiontext;
     private String questionoptions;
-
-    private boolean isrequired;
-
-    public boolean isIsrequired() {
-        return isrequired;
-    }
-
-    public void setIsrequired(boolean isrequired) {
-        this.isrequired = isrequired;
-    }
-
-    public String getQuestionoptions() {
-        return questionoptions;
-    }
-
-    public void setQuestionoptions(String questionoptions) {
-        this.questionoptions = questionoptions;
-    }
-
     private String questiontype;
-
-    public String getQuestiontype() {
-        return questiontype;
-    }
-
-    public void setQuestiontype(String questiontype) {
-        this.questiontype = questiontype;
-    }
+    private boolean isrequired;
 
     @ManyToOne
     @JsonIgnoreProperties("questions")
@@ -58,6 +32,8 @@ public class Question {
     @JsonIgnoreProperties("question")
     private List<Answer> answers;
 
+    /* Constructors */
+
     public Question() {
     }
 
@@ -65,14 +41,14 @@ public class Question {
         this.questiontext = questiontext;
         this.questiontype = questiontype;
         this.inquiry = inquiry;
-        this.questiontype = questiontype;
+        // this.questiontype = questiontype;
     }
 
     public Question(String questiontext, Inquiry inquiry, String questiontype, String questionoptions) {
         this.questiontext = questiontext;
         this.questiontype = questiontype;
         this.inquiry = inquiry;
-        this.questiontype = questiontype;
+        // this.questiontype = questiontype;
         this.questionoptions = questionoptions;
     }
 
@@ -81,8 +57,17 @@ public class Question {
         this.questiontype = questiontype;
         this.questiontext = questiontext;
         this.inquiry = inquiry;
-        this.questiontype = questiontype;
+        // this.questiontype = questiontype;
     }
+
+    public Question(String questiontext, Inquiry inquiry, String questiontype, boolean isrequired) {
+        this.questiontext = questiontext;
+        this.questiontype = questiontype;
+        this.inquiry = inquiry;
+        this.isrequired = isrequired;
+    }
+
+    /* Getters */
 
     public Inquiry getInquiry() {
         return inquiry;
@@ -100,6 +85,20 @@ public class Question {
         return answers;
     }
 
+    public String getQuestiontype() {
+        return questiontype;
+    }
+
+    public String getQuestionoptions() {
+        return questionoptions;
+    }
+
+    public boolean isIsrequired() {
+        return isrequired;
+    }
+
+    /* Setters */
+
     public void setQuestionid(Long questionid) {
         this.questionid = questionid;
     }
@@ -116,6 +115,19 @@ public class Question {
         this.answers = answers;
     }
 
+    public void setIsrequired(boolean isrequired) {
+        this.isrequired = isrequired;
+    }
+
+    public void setQuestionoptions(String questionoptions) {
+        this.questionoptions = questionoptions;
+    }
+
+    public void setQuestiontype(String questiontype) {
+        this.questiontype = questiontype;
+    }
+
+    /* toString */
     @Override
     public String toString() {
         return "Question questionid: " + questionid + ", questiontext: " + questiontext + ", inquiry: " + inquiry
