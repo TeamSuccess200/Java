@@ -36,7 +36,7 @@ public class KyselypalveluApplication {
 			irepository.save(testInquiry2);
 
 			log.info("Save some questions to the testinquiry");
-			Question question1 = new Question("Mitä mieltä olit kurssimateriaaleista?", testInquiry1, "text");
+			Question question1 = new Question("Mitä mieltä olit kurssimateriaaleista?", testInquiry1, "radio", "Hyvät, Keskiverrot, Huonot");
 			Question question2 = new Question("Mitä mieltä opetuksesta?", testInquiry1, "text");
 			Question question3 = new Question("Mitä kehittäisit kurssitoteutuksessa?", testInquiry1, "text");
 			Question question4 = new Question("Mistä tykkäsit erityisesti opetuksessa?", testInquiry1, "text");
@@ -51,7 +51,7 @@ public class KyselypalveluApplication {
 			qrepository.save(question6);
 
 			log.info("Save some answers to the testinquiry");
-			Answer answer1 = new Answer("Kurssimateriaalit olivat hyvät.", question1);
+			Answer answer1 = new Answer("Hyvät", question1);
 			Answer answer2 = new Answer("Opetus oli ok. Olisin halunnut käytännönläheisempää tekemistä.", question2);
 			Answer answer3 = new Answer("Vähentäisin ryhmätyöskentelyä ja lisäisin yksintyöskentelyä.", question3);
 			Answer answer4 = new Answer("Tykkäsin opettajan innostuksesta asiaan liittyen.", question4);

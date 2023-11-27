@@ -58,6 +58,14 @@ public class Question {
         this.questiontype = questiontype;
     }
 
+    public Question(String questiontext, Inquiry inquiry, String questiontype, String questionoptions) {
+        this.questiontext = questiontext;
+        this.questiontype = questiontype;
+        this.inquiry = inquiry;
+        this.questiontype = questiontype;
+        this.questionoptions = questionoptions;
+    }
+
     public Question(Long questionid, String questiontext, Inquiry inquiry, String questiontype) {
         this.questionid = questionid;
         this.questiontype = questiontype;
