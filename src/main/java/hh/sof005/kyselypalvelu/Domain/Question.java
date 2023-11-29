@@ -69,6 +69,16 @@ public class Question {
         this.isrequired = isrequired;
     }
 
+    public Question(String questiontext, Inquiry inquiry, String questiontype, String questionoptions,
+            boolean isrequired) {
+        this.questiontext = questiontext;
+        this.questiontype = questiontype;
+        this.inquiry = inquiry;
+        this.questionoptions = questionoptions;
+        this.isrequired = isrequired;
+
+    }
+
     /* Getters */
 
     public Inquiry getInquiry() {
