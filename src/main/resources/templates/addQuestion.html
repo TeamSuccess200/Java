@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Add a question</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  </head>
-  <body>
-    <div class="container">
-      <h2>Add Question</h2>
-      <div class="col-md-4">
-        <form
-          th:object="${question}"
-          th:action="@{/savequestion}"
-          action="#"
-          method="post"
-        >
+
+<head>
+  <title>Add a question</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+  <div class="container">
+    <h2>Add Question</h2>
+    <div class="col-md-4">
+      <form th:object="${question}" th:action="@{/savequestion}" action="#" method="post">
 
         <input type="hidden" th:field="*{inquiry.inquiryId}" />
 
         <label for="questiontype">Question Type</label>
         <div>
-            <label>
-                <input type="radio" th:field="*{questiontype}" value="radio" onClick="toggleQuestionOptions()"/>
-                Radiobutton
-            </label>
+          <label>
+            <input type="radio" th:field="*{questiontype}" value="radio" onClick="toggleQuestionOptions()" />
+            Radiobutton
+          </label>
         </div>
         <div>
-            <label>
-                <input type="radio" th:field="*{questiontype}" value="text" onClick="toggleQuestionOptions()"/>
-                Text
-            </label>
+          <label>
+            <input type="radio" th:field="*{questiontype}" value="text" onClick="toggleQuestionOptions()" />
+            Text
+          </label>
+        </div>
+
+        <div>
+          <label>
+            <input type="radio" th:field="*{questiontype}" value="range" onClick="toggleQuestionOptions()" />
+            Range
+          </label>
         </div>
 
         <br />
@@ -36,12 +40,7 @@
 
         <div id="questionTypeSection" style="display: none">
           <label for="question">Question</label>
-          <input
-            type="text"
-            id="question"
-            th:field="*{questiontext}"
-            class="form-control"
-          />
+          <input type="text" id="question" th:field="*{questiontext}" class="form-control" />
           <br />
           <br />
           <label for="isrequired">Is answering required?</label>
@@ -54,42 +53,60 @@
               <input type="radio" th:field="*{isrequired}" value="false" />
               No
             </label>
-        </div>
-
-        </div>
-          <div id="questionOptionsSection" style="display: none;">
-            <p>Question options (Options separated with a comma and a space)</p>
-            <label for="questionoptions">Question options</label>
-            <input type="text" id="questionoptions" th:field="*{questionoptions}" class="form-control"/>
           </div>
-          <div style="clear: both; display: block; height: 10px"></div>
 
-          <button type="submit" value="savequestion">Add</button>
+        </div>
+        <div id="questionOptionsSection" style="display: none;">
+          <p>Question options (Options separated with a comma and a space)</p>
+          <label for="questionoptions">Question options</label>
+          <input type="text" id="questionoptions" th:field="*{questionoptions}" class="form-control" />
+        </div>
+        <div style="clear: both; display: block; height: 10px"></div>
+
+        <div id="questionMinMaxValues" style="display: none;">
+          <p>Give min and max values for ranged question</p>
+          <label for="questionoptions">Min:</label>
+          <input type="text" id="min" th:field="*{min}" class="form-control" />
+          <label for="questionoptions">Max:</label>
+          <input type="text" id="max" th:field="*{max}" class="form-control" />
+        </div>
+
+        <div style="clear: both; display: block; height: 10px"></div>
+
+        <button type="submit" value="savequestion">Add</button>
 
 
-        </form>
-      </div>
+      </form>
     </div>
+  </div>
 
-    <script th:inline="javascript">
-      /*<![CDATA[*/
-      function toggleQuestionOptions() {
-          var questionOptionsSection = document.getElementById('questionOptionsSection');
-          var questionTypeSection = document.getElementById('questionTypeSection');
-          var questionType = document.querySelector('input[name="questiontype"]:checked').value;
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+    function toggleQuestionOptions() {
+      var questionOptionsSection = document.getElementById('questionOptionsSection');
+      var questionTypeSection = document.getElementById('questionTypeSection');
+      var questionMinMaxValues = document.getElementById('questionMinMaxValues');
+      var questionType = document.querySelector('input[name="questiontype"]:checked').value;
 
-          if (questionType === 'radio' || 'text') {
-            questionTypeSection.style.display = 'block';
-          }
-  
-          if (questionType === 'radio') {
-              questionOptionsSection.style.display = 'block';
-          } else {
-              questionOptionsSection.style.display = 'none';
-          }
+      if (questionType === 'radio' || 'text' || 'range') {
+        questionTypeSection.style.display = 'block';
       }
-      /*]]>*/
+
+      if (questionType === 'radio') {
+        questionOptionsSection.style.display = 'block';
+      } else {
+        questionOptionsSection.style.display = 'none';
+      }
+
+      if (questionType === 'range') {
+        questionMinMaxValues.style.display = 'block';
+      } else {
+        questionMinMaxValues.style.display = 'none';
+      }
+    }
+    /*]]>*/
   </script>
 
-  </body>
+</body>
+
 </html>

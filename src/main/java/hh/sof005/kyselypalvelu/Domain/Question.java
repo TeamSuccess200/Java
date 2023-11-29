@@ -22,6 +22,8 @@ public class Question {
     private String questionoptions;
     private String questiontype;
     private boolean isrequired;
+    private int min;
+    private int max;
 
     @ManyToOne
     @JsonIgnoreProperties("questions")
@@ -97,6 +99,14 @@ public class Question {
         return isrequired;
     }
 
+    public int getMin() {
+        return min;
+    }
+
+    public int getMax() {
+        return max;
+    }
+
     /* Setters */
 
     public void setQuestionid(Long questionid) {
@@ -125,6 +135,14 @@ public class Question {
 
     public void setQuestiontype(String questiontype) {
         this.questiontype = questiontype;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
     }
 
     /* toString */
