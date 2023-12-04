@@ -36,6 +36,10 @@ public class KyselypalveluApplication {
 			irepository.save(testInquiry2);
 
 			log.info("Save some questions to the testinquiry");
+			Question question0 = new Question("Monennenko vuoden opiskelija olet?", testInquiry1, "radio",
+					"1. vuoden, 2. vuoden, 3. vuoden, 4. vuoden, 5+ vuoden", true);
+			Question question0A = new Question("Minkä suuntautumisen valitsit?", testInquiry1, "radio",
+					"Ohjelmistokehitys, Digitaaliset palvelut, Infra, Liiketoiminta-ICT", true);
 			Question question1 = new Question("Mitä mieltä olit kurssimateriaaleista?", testInquiry1, "radio",
 					"Hyvät, Keskiverrot, Huonot", true);
 			Question question2 = new Question("Mitä mieltä opetuksesta?", testInquiry1, "text", true);
@@ -44,6 +48,8 @@ public class KyselypalveluApplication {
 			Question question5 = new Question("Miten arvioisit oman aktiivisuutesi kurssilla?", testInquiry1, "text");
 			Question question6 = new Question("Anna vapaamuotoista palautetta kurssista: ", testInquiry1, "text");
 
+			qrepository.save(question0);
+			qrepository.save(question0A);
 			qrepository.save(question1);
 			qrepository.save(question2);
 			qrepository.save(question3);
@@ -52,6 +58,16 @@ public class KyselypalveluApplication {
 			qrepository.save(question6);
 
 			log.info("Save some answers to the testinquiry");
+			Answer answer0 = new Answer("1. vuoden", question0);
+			Answer answer00 = new Answer("2. vuoden", question0);
+			Answer answer01 = new Answer("3. vuoden", question0);
+			Answer answer02 = new Answer("4. vuoden", question0);
+			Answer answer03 = new Answer("5+ vuoden", question0);
+			Answer answer0A1 = new Answer("Ohjelmistokehitys", question0A);
+			Answer answer0A2 = new Answer("Digitaaliset palvelut", question0A);
+			Answer answer0A3 = new Answer("Ohjelmistokehitys", question0A);
+			Answer answer0A4 = new Answer("Infra", question0A);
+			Answer answer0A5 = new Answer("Ohjelmistokehitys", question0A);
 			Answer answer1 = new Answer("Hyvät", question1);
 			Answer answer2 = new Answer("Opetus oli ok. Olisin halunnut käytännönläheisempää tekemistä.", question2);
 			Answer answer3 = new Answer("Vähentäisin ryhmätyöskentelyä ja lisäisin yksintyöskentelyä.", question3);
@@ -66,6 +82,16 @@ public class KyselypalveluApplication {
 			arepository.save(answer4);
 			arepository.save(answer5);
 			arepository.save(answer6);
+			arepository.save(answer0);
+			arepository.save(answer00);
+			arepository.save(answer01);
+			arepository.save(answer02);
+			arepository.save(answer03);
+			arepository.save(answer0A1);
+			arepository.save(answer0A2);
+			arepository.save(answer0A3);
+			arepository.save(answer0A4);
+			arepository.save(answer0A5);
 
 			log.info("Save some questions to the testinquiry2");
 			Question question10 = new Question("What is your pets name?", testInquiry2, "text");
