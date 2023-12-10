@@ -60,7 +60,7 @@ public class KyselypalveluApplication {
 			log.info("Save some answers to the testinquiry");
 			Answer answer0 = new Answer("1. vuoden", question0);
 			Answer answer00 = new Answer("2. vuoden", question0);
-			Answer answer01 = new Answer("3. vuoden", question0);
+			Answer answer01 = new Answer("2. vuoden", question0);
 			Answer answer02 = new Answer("4. vuoden", question0);
 			Answer answer03 = new Answer("5+ vuoden", question0);
 			Answer answer0A1 = new Answer("Ohjelmistokehitys", question0A);
@@ -69,19 +69,53 @@ public class KyselypalveluApplication {
 			Answer answer0A4 = new Answer("Infra", question0A);
 			Answer answer0A5 = new Answer("Ohjelmistokehitys", question0A);
 			Answer answer1 = new Answer("Hyvät", question1);
+			Answer answer1A = new Answer("Hyvät", question1);
+			Answer answer1B = new Answer("Huonot", question1);
+			Answer answer1C = new Answer("Keskiverrot", question1);
+			Answer answer1D = new Answer("Keskiverrot", question1);
 			Answer answer2 = new Answer("Opetus oli ok. Olisin halunnut käytännönläheisempää tekemistä.", question2);
+			Answer answer2A = new Answer("Tykkäsin opetuksesta, opettaja oli innostunut opettamastaan aiheesta",
+					question2);
+			Answer answer2B = new Answer("Liikaa kotitehtäviä!", question2);
+			Answer answer2C = new Answer("Olisin halunnut lisää esimerkkejä teoriaosuuksista", question2);
 			Answer answer3 = new Answer("Vähentäisin ryhmätyöskentelyä ja lisäisin yksintyöskentelyä.", question3);
+			Answer answer3A = new Answer("Teoriapowerpointteja voisi selventää, ne ovat aika sekavia.", question3);
+			Answer answer3B = new Answer("Tunneilla pitäisi jättää aikaa ryhmätehtävien tekemiselle!", question3);
 			Answer answer4 = new Answer("Tykkäsin opettajan innostuksesta asiaan liittyen.", question4);
+			Answer answer4A = new Answer("Tykkäsin tehtävistä", question4);
+			Answer answer4B = new Answer("Siitä että sai valita omat ryhmänsä", question4);
+			Answer answer4C = new Answer("Ei ollut tenttiä!", question4);
 			Answer answer5 = new Answer("Oma aktiivisuuteni oli ehkä 7/10-luokkaa.", question5);
+			Answer answer5A = new Answer("Olin hyvin aktiivinen", question5);
+			Answer answer5B = new Answer("Sairastuminen esti olemasta niin aktiivinen kuin halusin", question5);
+			Answer answer5C = new Answer("Arvioisin sen loistavaksi", question5);
 			Answer answer6 = new Answer(
 					"Pitkiin diaesityksiin on vaikea jaksaa keskittyä, niitä voisi hieman tiivistää.", question6);
+			Answer answer6A = new Answer(
+					"Kiitos kivasta kurssista! Opin paljon", question6);
 
 			arepository.save(answer1);
+			arepository.save(answer1A);
+			arepository.save(answer1B);
+			arepository.save(answer1C);
+			arepository.save(answer1D);
 			arepository.save(answer2);
+			arepository.save(answer2A);
+			arepository.save(answer2B);
+			arepository.save(answer2C);
 			arepository.save(answer3);
+			arepository.save(answer3A);
+			arepository.save(answer3B);
 			arepository.save(answer4);
+			arepository.save(answer4A);
+			arepository.save(answer4B);
+			arepository.save(answer4C);
 			arepository.save(answer5);
+			arepository.save(answer5A);
+			arepository.save(answer5B);
+			arepository.save(answer5C);
 			arepository.save(answer6);
+			arepository.save(answer6A);
 			arepository.save(answer0);
 			arepository.save(answer00);
 			arepository.save(answer01);
