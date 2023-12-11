@@ -43,14 +43,12 @@ public class Question {
         this.questiontext = questiontext;
         this.questiontype = questiontype;
         this.inquiry = inquiry;
-        // this.questiontype = questiontype;
     }
 
     public Question(String questiontext, Inquiry inquiry, String questiontype, String questionoptions) {
         this.questiontext = questiontext;
         this.questiontype = questiontype;
         this.inquiry = inquiry;
-        // this.questiontype = questiontype;
         this.questionoptions = questionoptions;
     }
 
@@ -59,7 +57,6 @@ public class Question {
         this.questiontype = questiontype;
         this.questiontext = questiontext;
         this.inquiry = inquiry;
-        // this.questiontype = questiontype;
     }
 
     public Question(String questiontext, Inquiry inquiry, String questiontype, boolean isrequired) {
@@ -77,6 +74,14 @@ public class Question {
         this.questionoptions = questionoptions;
         this.isrequired = isrequired;
 
+    }
+
+    public Question(String questiontext, String questiontype, int min, int max, Inquiry inquiry) {
+        this.questiontext = questiontext;
+        this.questiontype = questiontype;
+        this.min = min;
+        this.max = max;
+        this.inquiry = inquiry;
     }
 
     /* Getters */

@@ -17,6 +17,7 @@ public class Answer {
     private Long answerId;
 
     private String answertext;
+    private int rangeAnswer;
 
     @ManyToOne
     @JoinColumn(name = "questionid")
@@ -37,6 +38,10 @@ public class Answer {
         this.answertext = answertext;
     }
 
+    public Answer(int rangeAnswer) {
+        this.rangeAnswer = rangeAnswer;
+    }
+
     /* Setters */
 
     public void setAnswerId(Long answerId) {
@@ -49,6 +54,10 @@ public class Answer {
 
     public void setQuestion(Question question) {
         this.question = question;
+    }
+
+    public void setRangeAnswer(int rangeAnswer) {
+        this.rangeAnswer = rangeAnswer;
     }
 
     /* Getters */
@@ -65,11 +74,14 @@ public class Answer {
         return question;
     }
 
+    public int getRangeAnswer() {
+        return rangeAnswer;
+    }
+
     /* toString */
 
     @Override
     public String toString() {
         return "Answer answerId: " + answerId + ", answertext: " + answertext;
     }
-
 }
