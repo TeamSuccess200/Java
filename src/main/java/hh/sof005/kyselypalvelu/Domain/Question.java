@@ -76,7 +76,7 @@ public class Question {
 
     }
 
-    public Question(String questiontext, String questiontype, int min, int max, Inquiry inquiry) {
+    public Question(String questiontext, Inquiry inquiry, String questiontype, int min, int max) {
         this.questiontext = questiontext;
         this.questiontype = questiontype;
         this.min = min;

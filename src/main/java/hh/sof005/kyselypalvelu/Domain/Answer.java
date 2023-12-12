@@ -38,8 +38,9 @@ public class Answer {
         this.answertext = answertext;
     }
 
-    public Answer(int rangeAnswer) {
+    public Answer(int rangeAnswer, Question question) {
         this.rangeAnswer = rangeAnswer;
+        this.question = question;
     }
 
     /* Setters */

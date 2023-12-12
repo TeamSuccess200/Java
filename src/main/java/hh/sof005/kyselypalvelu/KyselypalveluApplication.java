@@ -47,8 +47,8 @@ public class KyselypalveluApplication {
 			Question question4 = new Question("Mistä tykkäsit erityisesti opetuksessa?", testInquiry1, "text", true);
 			Question question5 = new Question("Miten arvioisit oman aktiivisuutesi kurssilla?", testInquiry1, "text");
 			Question question6 = new Question("Anna vapaamuotoista palautetta kurssista: ", testInquiry1, "text");
-			Question question7 = new Question("Minkä arvosanan antaisit itsellesi kurssista?", "range", 1, 5,
-					testInquiry1);
+			Question question7 = new Question("Minkä arvosanan antaisit itsellesi kurssista?", testInquiry1, "range", 1,
+					5);
 
 			qrepository.save(question0);
 			qrepository.save(question0A);
@@ -96,7 +96,11 @@ public class KyselypalveluApplication {
 					"Pitkiin diaesityksiin on vaikea jaksaa keskittyä, niitä voisi hieman tiivistää.", question6);
 			Answer answer6A = new Answer(
 					"Kiitos kivasta kurssista! Opin paljon", question6);
-			Answer answer7 = new Answer(5);
+			Answer answer7 = new Answer(5, question7);
+			Answer answer7A = new Answer(5, question7);
+			Answer answer7B = new Answer(4, question7);
+			Answer answer7C = new Answer(3, question7);
+			Answer answer7D = new Answer(3, question7);
 
 			arepository.save(answer1);
 			arepository.save(answer1A);
@@ -131,6 +135,10 @@ public class KyselypalveluApplication {
 			arepository.save(answer0A4);
 			arepository.save(answer0A5);
 			arepository.save(answer7);
+			arepository.save(answer7A);
+			arepository.save(answer7B);
+			arepository.save(answer7C);
+			arepository.save(answer7D);
 
 			log.info("Save some questions to the testinquiry2");
 			Question question10 = new Question("What is your pets name?", testInquiry2, "text");
