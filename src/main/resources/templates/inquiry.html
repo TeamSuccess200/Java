@@ -1,35 +1,47 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <title>Add inquiry</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-	<h2>Inquiry</h2>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-            </tr>
-        </thead>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body class="container mt-5" style="margin-left: 20px">
+    <h2>Inquiry</h2>
 
-        <tbody>
-            <tr>
-                <td th:text="${inquiry.name}"></td>
-                <td th:text="${inquiry.description}"></td>
-            </tr>
-        </tbody>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td th:text="${inquiry.name}"></td>
+          <td th:text="${inquiry.description}"></td>
+        </tr>
+      </tbody>
     </table>
-    <ul th:each="question : ${inquiry.questions}">
-        <li th:text="${question.questiontext}"></li>
+
+    <h5>Questions</h5>
+
+    <ul class="list-group" th:each="question : ${inquiry.questions}">
+      <li class="list-group-item" th:text="${question.questiontext}"></li>
     </ul>
 
-    <a th:href="@{'/addquestion/' + ${inquiry.inquiryId}}">Add new question</a>
+    <a
+      th:href="@{'/addquestion/' + ${inquiry.inquiryId}}"
+      class="btn btn-primary"
+      >Add new question</a
+    >
 
     <br />
 
-    <a href="/inquiryList">Back</a>
-
-</body>
+    <a href="/inquiryList" class="btn btn-secondary mt-3">Back</a>
+  </body>
+</html>

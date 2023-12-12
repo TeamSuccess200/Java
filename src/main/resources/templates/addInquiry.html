@@ -1,27 +1,35 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <title>Add inquiry</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-	<h2>Add Inquiry</h2>
-	
-	<form th:object="${inquiry}" th:action="@{saveInquiry}" action="#" method="post">
-		<label for="Name">Name</label>
-			<input type="text" id="name" th:field="*{name}" />
-			
-			<br />
-			<br />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body class="container mt-5" style="margin-left: 20px">
+    <h2>Add Inquiry</h2>
 
+    <form th:object="${inquiry}" th:action="@{saveInquiry}" method="post">
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" id="name" th:field="*{name}" class="form-control" />
+      </div>
+
+      <div class="form-group">
         <label for="Description">Description</label>
-			<input type="text" id="description" th:field="*{description}" />
-			
-			<br />
-			<br />
-			
-		<input type="submit" class="btn btn-primary" value="Save"></input>
-	</form>
-		<button><a href="/inquiryList" class="btn btn-primary">Back</a></button>
-</body>
+        <input
+          type="text"
+          id="description"
+          th:field="*{description}"
+          class="form-control"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+    <a href="/inquiryList" class="btn btn-secondary mt-3">Back</a>
+  </body>
 </html>

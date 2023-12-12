@@ -1,112 +1,166 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Add a question</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
 
-<head>
-  <title>Add a question</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
+  <body>
+    <div class="container mt-5" style="margin-left: 20px">
+      <h2 class="mb-4">Add Question</h2>
+      <div class="col-md-6">
+        <form
+          th:object="${question}"
+          th:action="@{/savequestion}"
+          method="post"
+        >
+          <input type="hidden" th:field="*{inquiry.inquiryId}" />
 
-<body>
-  <div class="container">
-    <h2>Add Question</h2>
-    <div class="col-md-4">
-      <form th:object="${question}" th:action="@{/savequestion}" action="#" method="post">
-
-        <input type="hidden" th:field="*{inquiry.inquiryId}" />
-
-        <label for="questiontype">Question Type</label>
-        <div>
-          <label>
-            <input type="radio" th:field="*{questiontype}" value="radio" onClick="toggleQuestionOptions()" />
-            Radiobutton
-          </label>
-        </div>
-        <div>
-          <label>
-            <input type="radio" th:field="*{questiontype}" value="text" onClick="toggleQuestionOptions()" />
-            Text
-          </label>
-        </div>
-
-        <div>
-          <label>
-            <input type="radio" th:field="*{questiontype}" value="range" onClick="toggleQuestionOptions()" />
-            Range
-          </label>
-        </div>
-
-        <br />
-        <br />
-
-        <div id="questionTypeSection" style="display: none">
-          <label for="question">Question</label>
-          <input type="text" id="question" th:field="*{questiontext}" class="form-control" />
-          <br />
-          <br />
-          <label for="isrequired">Is answering required?</label>
-          <div>
-            <label>
-              <input type="radio" th:field="*{isrequired}" value="true" />
-              Yes
-            </label>
-            <label>
-              <input type="radio" th:field="*{isrequired}" value="false" />
-              No
-            </label>
+          <div class="form-group">
+            <label>Question Type</label>
+            <div class="form-check">
+              <input
+                type="radio"
+                th:field="*{questiontype}"
+                value="radio"
+                onclick="toggleQuestionOptions()"
+                class="form-check-input"
+              />
+              <label class="form-check-label">Radiobutton</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="radio"
+                th:field="*{questiontype}"
+                value="text"
+                onclick="toggleQuestionOptions()"
+                class="form-check-input"
+              />
+              <label class="form-check-label">Text</label>
+            </div>
+            <div class="form-check">
+              <input
+                type="radio"
+                th:field="*{questiontype}"
+                value="range"
+                onclick="toggleQuestionOptions()"
+                class="form-check-input"
+              />
+              <label class="form-check-label">Range</label>
+            </div>
           </div>
 
-        </div>
-        <div id="questionOptionsSection" style="display: none;">
-          <p>Question options (Options separated with a comma and a space)</p>
-          <label for="questionoptions">Question options</label>
-          <input type="text" id="questionoptions" th:field="*{questionoptions}" class="form-control" />
-        </div>
-        <div style="clear: both; display: block; height: 10px"></div>
+          <div id="questionTypeSection" style="display: none">
+            <div class="form-group">
+              <label for="question">Question</label>
+              <input
+                type="text"
+                id="question"
+                th:field="*{questiontext}"
+                class="form-control"
+              />
+            </div>
 
-        <div id="questionMinMaxValues" style="display: none;">
-          <p>Give min and max values for ranged question</p>
-          <label for="questionoptions">Min:</label>
-          <input type="text" id="min" th:field="*{min}" class="form-control" />
-          <label for="questionoptions">Max:</label>
-          <input type="text" id="max" th:field="*{max}" class="form-control" />
-        </div>
+            <div class="form-group">
+              <label>Is answering required?</label>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  th:field="*{isrequired}"
+                  value="true"
+                  class="form-check-input"
+                />
+                <label class="form-check-label">Yes</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  th:field="*{isrequired}"
+                  value="false"
+                  class="form-check-input"
+                />
+                <label class="form-check-label">No</label>
+              </div>
+            </div>
+          </div>
 
-        <div style="clear: both; display: block; height: 10px"></div>
+          <div id="questionOptionsSection" style="display: none">
+            <div class="form-group">
+              <label for="questionoptions">Question options</label>
+              <input
+                type="text"
+                id="questionoptions"
+                th:field="*{questionoptions}"
+                class="form-control"
+              />
+            </div>
+          </div>
 
-        <button type="submit" value="savequestion">Add</button>
+          <div id="questionMinMaxValues" style="display: none">
+            <div class="form-group">
+              <label for="min">Min:</label>
+              <input
+                type="text"
+                id="min"
+                th:field="*{min}"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="max">Max:</label>
+              <input
+                type="text"
+                id="max"
+                th:field="*{max}"
+                class="form-control"
+              />
+            </div>
+          </div>
 
-
-      </form>
+          <button type="submit" value="savequestion" class="btn btn-primary">
+            Add
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
 
-  <script th:inline="javascript">
-    /*<![CDATA[*/
-    function toggleQuestionOptions() {
-      var questionOptionsSection = document.getElementById('questionOptionsSection');
-      var questionTypeSection = document.getElementById('questionTypeSection');
-      var questionMinMaxValues = document.getElementById('questionMinMaxValues');
-      var questionType = document.querySelector('input[name="questiontype"]:checked').value;
+    <script th:inline="javascript">
+      /*<![CDATA[*/
+      function toggleQuestionOptions() {
+        var questionOptionsSection = document.getElementById(
+          "questionOptionsSection"
+        );
+        var questionTypeSection = document.getElementById(
+          "questionTypeSection"
+        );
+        var questionMinMaxValues = document.getElementById(
+          "questionMinMaxValues"
+        );
+        var questionType = document.querySelector(
+          'input[name="questiontype"]:checked'
+        ).value;
 
-      if (questionType === 'radio' || 'text' || 'range') {
-        questionTypeSection.style.display = 'block';
+        if (questionType === "radio" || "text" || "range") {
+          questionTypeSection.style.display = "block";
+        }
+
+        if (questionType === "radio") {
+          questionOptionsSection.style.display = "block";
+        } else {
+          questionOptionsSection.style.display = "none";
+        }
+
+        if (questionType === "range") {
+          questionMinMaxValues.style.display = "block";
+        } else {
+          questionMinMaxValues.style.display = "none";
+        }
       }
-
-      if (questionType === 'radio') {
-        questionOptionsSection.style.display = 'block';
-      } else {
-        questionOptionsSection.style.display = 'none';
-      }
-
-      if (questionType === 'range') {
-        questionMinMaxValues.style.display = 'block';
-      } else {
-        questionMinMaxValues.style.display = 'none';
-      }
-    }
-    /*]]>*/
-  </script>
-
-</body>
-
+      /*]]>*/
+    </script>
+  </body>
 </html>
